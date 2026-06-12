@@ -1,0 +1,6 @@
+名前 読み取りテストですよ talk null
+name これが読まれていれば talk null
+ﾅﾏｴ 多分成功してます talk null
+ナマエ これをどうにか応用して talk null
+なまえ 各シーンの会話文を talk null
+あああああ 表示できるようにしたいですね choice 選択肢
