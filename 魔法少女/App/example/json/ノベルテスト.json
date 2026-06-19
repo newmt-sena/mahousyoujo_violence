@@ -1,0 +1,153 @@
+{
+    "scene": {
+        "scene_01_classroom": {
+            "commands": [
+                {
+                    "type": "bg",
+                    "value": "bg_classroom_day"
+                },
+                {
+                    "type": "bgm",
+                    "value": "bgm_school_life"
+                },
+                {
+                    "type": "text",
+                    "name": "",
+                    "value": "放課後の教室。夕日が差し込んでいる。"
+                },
+                {
+                    "type": "chara_show",
+                    "name": "heroine",
+                    "value": "nomal"
+                },
+                {
+                    "type": "text",
+                    "name": "葵",
+                    "value": "あ、待っててくれたんだ！嬉しいな。"
+                },
+                {
+                    "type": "text",
+                    "name": "主人公",
+                    "value": "別に、ノートを返す約束をしていただろ。"
+                },
+                {
+                    "type": "chara_show",
+                    "name": "heroine",
+                    "value": "blush"
+                },
+                {
+                    "type": "text",
+                    "name": "葵",
+                    "value": "そ、それだけ？……ねえ、この後もし良かったら、一緒に帰らない？"
+                }
+            ],
+            "choices": [
+                {
+                    "text": "テスト1",
+                    "nextScene": "scene_02_go_home",
+                    "targetParam": "aoi_love",
+                    "value": 10
+                },
+                {
+                    "text": "テスト2",
+                    "nextScene": "scene_02_alone",
+                    "targetParam": "aoi_love",
+                    "value": 0
+                }
+            ],
+            "defaultNextScene": ""
+        },
+
+        "scene_02_go_home": {
+            "commands": [
+                {
+                    "type": "bg",
+                    "value": "bg_sunset_road"
+                },
+                {
+                    "type": "chara_show",
+                    "name": "heroine",
+                    "value": "happy"
+                },
+                {
+                    "type": "text",
+                    "name": "葵",
+                    "value": "わーい！じゃあ、駅前のクレープ屋さん寄っていこうよ！"
+                },
+                {
+                    "type": "text",
+                    "name": "",
+                    "value": "葵は嬉しそうに俺の少し前を歩いていく。"
+                }
+            ],
+            "choices": [],
+            "defaultNextScene": "scene_check_end"
+        },
+
+        "scene_02_alone": {
+            "commands": [
+                {
+                    "type": "chara_hide",
+                    "name": "heroine",
+                    "value": ""
+                },
+                {
+                    "type": "text",
+                    "name": "",
+                    "value": "葵は少し寂しそうに「そっか、またね」と言って帰っていった。"
+                },
+                {
+                    "type": "text",
+                    "name": "",
+                    "value": "ひとりで歩く帰り道は、心なしかいつもより静かだった。"
+                }
+            ],
+            "choices": [],
+            "defaultNextScene": "scene_check_end"
+        },
+
+        "scene_check_end": {
+            "commands": [],
+            "choices": [],
+            "defaultNextScene": "",
+            "isBranch": true
+        },
+
+        "scene_true_end": {
+            "commands": [
+                {
+                    "type": "bg",
+                    "value": "bg_church"
+                },
+                {
+                    "type": "text",
+                    "name": "葵",
+                    "value": "私、ずっとあなたと一緒にいたいな。"
+                },
+                {
+                    "type": "text",
+                    "name": "",
+                    "value": "――俺たちは最高の結末を迎えた。 (True End)"
+                }
+            ],
+            "choices": [],
+            "defaultNextScene": ""
+        },
+
+        "scene_bad_end": {
+            "commands": [
+                {
+                    "type": "bg",
+                    "value": "bg_rain"
+                },
+                {
+                    "type": "text",
+                    "name": "",
+                    "value": "あの日以来、葵と話すことはなくなってしまった。 (Bad End)"
+                }
+            ],
+            "choices": [],
+            "defaultNextScene": ""
+        }
+    }
+}
