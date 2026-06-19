@@ -189,8 +189,6 @@ void Main()
 	{
 		const Array<String> items = line.split(U' ');
 
-
-
 		testS << Textset{ items[0],items[1],items[2],items[3]};
 	}
 
