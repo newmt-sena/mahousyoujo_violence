@@ -316,6 +316,9 @@ void Main()
 	String currentSpeaker = U"";
 	String currentText = U"";
 
+	//現在再生中のBGM
+	String currentPlaying;
+
 	// 選択肢の時間差表示用タイマー
 	Stopwatch choiceTimer;
 	const double CHOICE_DELAY_SEC = 1.5; // 選択肢が表示されるまでの待ち時間（秒）
@@ -335,6 +338,8 @@ void Main()
 	TextureAsset::Register({ U"nomal",{U"Texture"} }, U"example/character/test.png");
 	TextureAsset::Register({ U"blush",{U"Texture"} }, U"example/character/test_blush.png");
 	TextureAsset::Register({ U"happy",{U"Texture"} }, U"example/character/test_happy.png");
+
+	AudioAsset::Register(U"BGM1", Audio::Stream, U"example/test.mp3");
 
 	MessageBox message{ Rect{20, 440, 860, 140},true };
 
@@ -522,7 +527,23 @@ void Main()
 		}
 		
 
+		if (currentBGM != currentPlaying)
+		{
+			if (not currentPlaying.isEmpty())
+			{
+				// 0.5秒かけてフェードアウト
+				AudioAsset(currentPlaying).stop(0.5s);
+			}
 
+			if (AudioAsset::IsRegistered(currentBGM)) // 事前に登録されているか確認
+			{
+				// 0.5秒かけてフェードイン再生（ループ再生）
+				AudioAsset(currentBGM).play();
+			}
+
+			// 「現在再生中」の状態を更新
+			currentPlaying = currentBGM;
+		}
 		
 	}
 }
