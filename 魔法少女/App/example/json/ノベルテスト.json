@@ -43,13 +43,13 @@
             ],
             "choices": [
                 {
-                    "text": "テスト1",
+                    "text": "一緒に帰る",
                     "nextScene": "scene_02_go_home",
                     "targetParam": "aoi_love",
-                    "value": 10
+                    "value": 20
                 },
                 {
-                    "text": "テスト2",
+                    "text": "帰らない",
                     "nextScene": "scene_02_alone",
                     "targetParam": "aoi_love",
                     "value": 0

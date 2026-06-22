@@ -363,8 +363,8 @@ void Main()
 			int32 currentLove = variables[U"aoi_love"];
 			String nextEndScene = U"";
 
-			if (currentLove >= 80)		nextEndScene = U"scene_true_end";
-			else if (currentLove >= 50)	nextEndScene = U"scene_normal_end";
+			if (currentLove >= 20)		nextEndScene = U"scene_true_end";
+			else if (currentLove >= 10)	nextEndScene = U"scene_normal_end";
 			else                        nextEndScene = U"scene_bad_end";
 
 			sceneIndex = FindSceneIndex(novelTimeline, nextEndScene);
@@ -522,10 +522,6 @@ void Main()
 		}
 		
 
-
-		
-		
-		
 
 		
 	}
