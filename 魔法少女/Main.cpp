@@ -304,7 +304,7 @@ Array<NovelScene>LoadScenario(const String& path)
 void Main()
 {
 	
-	Array<NovelScene> novelTimeline = LoadScenario(U"example/json/ノベルテスト.json");
+	Array<NovelScene> novelTimeline = LoadScenario(U"example/json/魔法少女.json");
 
 	size_t sceneIndex = 0;//現在のシーン番号
 	size_t commandIndex = 0; // そのシーン内でのコマンド（演出）番号
@@ -325,7 +325,7 @@ void Main()
 
 	// パラメーター（好感度など）の管理
 	HashTable<String, int32> variables;
-	variables[U"aoi_love"] = 0;
+	variables[U"aoi_love"] = 50;
 	
 	// 背景の色を設定する | Set the background color
 	Scene::SetBackground(ColorF{ 0.6, 0.8, 0.7 });
@@ -335,9 +335,13 @@ void Main()
 	TextureAsset::Register({ U"majo",{U"Texture"} }, U"example/character/majo.png");
 	TextureAsset::Register({ U"mascot",{U"Texture"} }, U"example/character/bird.png");
 
-	TextureAsset::Register({ U"nomal",{U"Texture"} }, U"example/character/test.png");
-	TextureAsset::Register({ U"blush",{U"Texture"} }, U"example/character/test_blush.png");
-	TextureAsset::Register({ U"happy",{U"Texture"} }, U"example/character/test_happy.png");
+	TextureAsset::Register({ U"normal",{U"Texture"} }, U"example/character/majo_normal.png");
+	TextureAsset::Register({ U"smile",{U"Texture"} }, U"example/character/majo_smile.png");
+	TextureAsset::Register({ U"happy",{U"Texture"} }, U"example/character/majo_happy.png");
+	TextureAsset::Register({ U"cry",{U"Texture"} }, U"example/character/majo_cry.png");
+	TextureAsset::Register({ U"madness",{U"Texture"} }, U"example/character/majo_madness.png");
+	TextureAsset::Register({ U"hollow",{U"Texture"} }, U"example/character/majo_hollow.png");
+	TextureAsset::Register({ U"black",{U"Texture"} }, U"example/character/majo_black.png");
 
 	AudioAsset::Register(U"BGM1", Audio::Stream, U"example/test.mp3");
 
@@ -352,6 +356,7 @@ void Main()
 
 	while (System::Update())
 	{
+		
 		// 1. シナリオ終了チェック
 		if (sceneIndex >= novelTimeline.size())
 		{
@@ -368,9 +373,9 @@ void Main()
 			int32 currentLove = variables[U"aoi_love"];
 			String nextEndScene = U"";
 
-			if (currentLove >= 20)		nextEndScene = U"scene_true_end";
-			else if (currentLove >= 10)	nextEndScene = U"scene_normal_end";
-			else                        nextEndScene = U"scene_bad_end";
+			if (currentLove < 30)		nextEndScene = U"scene_violence";
+			else if (currentLove < 80)	nextEndScene = U"scene_07_LastAct_N";
+			else                        nextEndScene = U"scene_happiness";
 
 			sceneIndex = FindSceneIndex(novelTimeline, nextEndScene);
 			commandIndex = 0;
@@ -403,7 +408,7 @@ void Main()
 		}
 
 
-		TextureAsset(currentChara).scaled(0.5).drawAt(250, 350);
+		TextureAsset(currentChara).drawAt(250, 250);
 		TextureAsset(U"mascot").scaled(0.5).drawAt(650, 300);
 
 		// デバッグ情報の表示
@@ -450,8 +455,8 @@ void Main()
 
 					if (currentScene.choices.size() >= 2)
 					{
-						choice.setText(currentScene.choices[0].text, Vec2{ 300, 300 });
-						choice2.setText(currentScene.choices[1].text, Vec2{ 600, 300 });
+						choice.setText(currentScene.choices[0].text, Vec2{ 450, 200 });
+						choice2.setText(currentScene.choices[1].text, Vec2{ 450, 300 });
 
 						choice.draw(choices[0]);
 						choice.updateCursorStyle();
@@ -510,14 +515,15 @@ void Main()
 				// 選択肢がない場合の自動遷移（「次のシーンへ」ボタンをメッセージボックスの上に配置）
 				if (!currentScene.defaultNextScene.isEmpty())
 				{
-					if ((!menu.mouseOvered() && Cursor::OnClientRect() && MouseL.down()))
-					{
-						sceneIndex = FindSceneIndex(novelTimeline, currentScene.defaultNextScene);
-						commandIndex = 0;
-						choiceTimer.reset();
-						currentSpeaker = U"";
-						currentText = U"";
-					}
+					// 条件を満たしたら即座に次のシーンへ遷移させる
+					sceneIndex = FindSceneIndex(novelTimeline, currentScene.defaultNextScene);
+					commandIndex = 0;
+					choiceTimer.reset();
+					currentSpeaker = U"";
+					currentText = U"";
+
+					// 次のフレームを待たずに、新シーンの処理（背景やBGM変更）を走らせるために continue
+					continue;
 				}
 				else
 				{

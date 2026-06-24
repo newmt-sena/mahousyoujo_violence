@@ -1,25 +1,45 @@
-シーン用
-scene_01_start //スタート画面
+//スタート画面
+//別途プログラム内でシーンを用意
 └スタートボタン
 └各種設定
 └EXIT
+└スチルを見る
+
+シーン用
+scene_01_start //導入
 
 scene_02_Act1
+└choices
+　├violence
+　├happiness
 
 scene_03_Act2
+└choices
+　├violence
+　├happiness
+
 
 scene_04_Act3
+└choices
+　├violence
+　├happiness
+
 
 scene_05_Act4
+└choices
+　├violence
+　├happiness
+
 
 scene_06_Act5
+└choices
+　├violence
+　├happiness
 
 scene_check_end
 
 scene_07_LastAct
-
-scene_Neutral_end
-scene_Violence_end
-scene_Happiness_end
-
-//scene_Extra_end
+└scene_Neutral_end
+└scene_Violence_end
+└scene_Happiness_end
+//└scene_Extra_end

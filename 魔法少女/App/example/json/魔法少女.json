@@ -1,0 +1,132 @@
+{
+  "scene": {
+    "scene_01_start": {
+      "commands": [
+        { "type": "bg", "value": "bg_classroom_day" },
+        { "type": "bgm", "value": "" },
+        { "type": "chara_show", "name": "hijiri", "value": "normal" },
+        { "type": "text", "name": "聖", "value": "私、紫堂聖(しどう ひじり)！聖フローラ学園に通う普通の高校生！" },
+        { "type": "text", "name": "聖", "value": "ある日私の元に落ちてきた白い鳥のマスコット『ハニィ』にスカウトされて、 魔法少女になっちゃった！" },
+        { "type": "text", "name": "聖", "value": "この世界にはね、みんなの幸せを奪う悪いやつらがたくさんいるんだって。" },
+        { "type": "chara_show", "name": "hijiri", "value": "happy" },
+        { "type": "text", "name": "聖", "value": "だから私の手で、皆ぜ～んぶ全部正してあげるの！" },
+        { "type": "text", "name": "聖", "value": "”悪”で”不幸せ”は『罪』だから…" },
+        { "type": "chara_show", "name": "hijiri", "value": "black" },
+        { "type": "text", "name": "聖", "value": "ぜーんぶ私が、叩き潰してあげる。" }
+      ],
+      "choices": [],
+      "defaultNextScene": "scene_02_Act1"
+    },
+    "scene_02_Act1": {
+      "commands": [
+        { "type": "text", "name": "", "value": "Act1" },
+        { "type": "bg", "value": "bg_classroom_day" },
+        { "type": "bgm", "value": "" },
+        { "type": "chara_show", "name": "hijiri", "value": "normal" },
+        { "type": "text", "name": "ハニィ", "value": "怪人がビルを破壊して回ってるハニ！！" },
+        { "type": "text", "name": "ハニィ", "value": "どうするハニ、バイオレット！？" },
+        { "type": "text", "name": "バイオレット", "value": "私は…" }
+      ],
+      "choices": [
+        { "text": "建物ごと敵を倒す", "nextScene": "scene_02_violence", "targetParam": "aoi_love", "value": -6 },
+        { "text": "敵を洗脳し自身の眷属にする", "nextScene": "scene_02_happiness", "targetParam": "aoi_love", "value": 6 }
+      ],
+      "defaultNextScene": ""
+    },
+    "scene_02_violence": {
+      "commands": [
+        { "type": "bg", "value": "bg_classroom_day" },
+        { "type": "bgm", "value": "" },
+        { "type": "chara_show", "name": "hijiri", "value": "happy" },
+        { "type": "text", "name": "バイオレット", "value": "建物ごと破壊しちゃえ！これで大丈夫だね！" },
+        { "type": "text", "name": "ハニィ", "value": "び、ビルどころかこの辺一帯全部破壊しちゃったハニ…" }
+      ],
+      "choices": [],
+      "defaultNextScene": "scene_03_Act2"
+    },
+    "scene_02_happiness": {
+      "commands": [
+        { "type": "bg", "value": "bg_classroom_day" },
+        { "type": "bgm", "value": "" },
+        { "type": "chara_show", "name": "hijiri", "value": "smile" },
+        { "type": "text", "name": "バイオレット", "value": "これからは私の為だけに、たくさんたくさん働いてね！" },
+        { "type": "text", "name": "ハニィ", "value": "怪人を眷属に…！？む、むちゃくちゃハニ…！" }
+      ],
+      "choices": [],
+      "defaultNextScene": "scene_03_Act2"
+    },
+    "scene_03_Act2": {
+      "commands": [
+        { "type": "text", "name": "", "value": "Act2" },
+        { "type": "bg", "value": "bg_classroom_day" },
+        { "type": "bgm", "value": "" },
+        { "type": "chara_show", "name": "hijiri", "value": "normal" },
+        { "type": "text", "name": "ハニィ", "value": "怪人はどうにかできたけど、怪我人がいっぱいハニ…" },
+        { "type": "text", "name": "民間人", "value": "た、助けてくれ！足が挟まれて動けないんだ！" },
+        { "type": "text", "name": "ハニィ", "value": "どうするハニ…？" },
+        { "type": "text", "name": "バイオレット", "value": "私は…" }
+      ],
+      "choices": [
+        { "text": "怪我してる部位を破壊", "nextScene": "scene_03_violence", "targetParam": "aoi_love", "value": -8 },
+        { "text": "洗脳で痛みを幸せに変える", "nextScene": "scene_03_happiness", "targetParam": "aoi_love", "value": 8 }
+      ],
+      "defaultNextScene": ""
+    },
+    "scene_03_violence": {
+      "commands": [
+        { "type": "bg", "value": "bg_classroom_day" },
+        { "type": "bgm", "value": "" },
+        { "type": "chara_show", "name": "hijiri", "value": "happy" },
+        { "type": "text", "name": "民間人", "value": "うわぁあああああッ！！" },
+        { "type": "text", "name": "バイオレット", "value": "挟まれてるなら足ごとなくしちゃえばいいよね！" },
+        { "type": "text", "name": "ハニィ", "value": "あぁ…あまりの痛みで気絶しちゃったハニ…と、とりあえずハニィが\n止血しとくハニ…" }
+      ],
+      "choices": [],
+      "defaultNextScene": "scene_check_end"
+    },
+    "scene_03_happiness": {
+      "commands": [
+        { "type": "bg", "value": "bg_classroom_day" },
+        { "type": "bgm", "value": "" },
+        { "type": "chara_show", "name": "hijiri", "value": "smile" },
+        { "type": "text", "name": "民間人", "value": "は、あは、はははは、あはははははははははははははははははは" },
+        { "type": "text", "name": "バイオレット", "value": "痛いのは悪！ぜんぶ幸せに変えちゃうぞ！" },
+        { "type": "text", "name": "ハニィ", "value": "み、見てられないハニ…" }
+      ],
+      "choices": [],
+      "defaultNextScene": "scene_check_end"
+    },
+    "scene_check_end": {
+      "commands": [],
+      "choices": [],
+      "defaultNextScene": "",
+      "isBranch": true
+    },
+    "scene_07_LastAct_N": {
+      "commands": [
+        { "type": "bg", "value": "bg_classroom_day" },
+        { "type": "bgm", "value": "" },
+        { "type": "chara_show", "name": "hijiri", "value": "normal" },
+        { "type": "text", "name": "バイオレット", "value": "壊して、洗脳して、壊して、洗脳して。" },
+        { "type": "text", "name": "バイオレット", "value": "私は…" }
+      ],
+      "choices": [
+        { "text": "何もしない", "nextScene": "scene_Neutral_end", "targetParam": "aoi_love", "value": 0 }
+      ],
+      "defaultNextScene": ""
+    },
+    "scene_Neutral_end": {
+      "commands": [
+        { "type": "bg", "value": "bg_classroom_day" },
+        { "type": "bgm", "value": "" },
+        { "type": "chara_show", "name": "hijiri", "value": "hollow" },
+        { "type": "text", "name": "バイオレット", "value": "なんか全部飽きちゃった。" },
+        { "type": "text", "name": "バイオレット", "value": "普通過ぎてつまんないや、この世界。" },
+        { "type": "chara_show", "name": "hijiri", "value": "normal" },
+        { "type": "text", "name": "バイオレット", "value": "じゃあ、さっさと”リセット”しちゃおうね。" }
+      ],
+      "choices": [],
+      "defaultNextScene": ""
+    }
+  }
+}
