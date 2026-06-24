@@ -1,6 +1,45 @@
-名前 読み取りテストですよ talk null
-name これが読まれていれば talk null
-ﾅﾏｴ 多分成功してます talk null
-ナマエ これをどうにか応用して talk null
-なまえ 各シーンの会話文を talk null
-あああああ 表示できるようにしたいですね choice 選択肢
+//スタート画面
+//別途プログラム内でシーンを用意
+└スタートボタン
+└各種設定
+└EXIT
+└スチルを見る
+
+シーン用
+scene_01_start //導入
+
+scene_02_Act1
+└choices
+　├violence
+　├happiness
+
+scene_03_Act2
+└choices
+　├violence
+　├happiness
+
+
+scene_04_Act3
+└choices
+　├violence
+　├happiness
+
+
+scene_05_Act4
+└choices
+　├violence
+　├happiness
+
+
+scene_06_Act5
+└choices
+　├violence
+　├happiness
+
+scene_check_end
+
+scene_07_LastAct
+└scene_Neutral_end
+└scene_Violence_end
+└scene_Happiness_end
+//└scene_Extra_end
