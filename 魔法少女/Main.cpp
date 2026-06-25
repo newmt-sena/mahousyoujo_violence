@@ -311,13 +311,14 @@ void Main()
 
 	String currentBG = U"なし";
 	String currentBGM = U"なし";
+	String currentSE = U"";
 	String currentChara = U"なし";
 
 	String currentSpeaker = U"";
 	String currentText = U"";
 
 	//現在再生中のBGM
-	String currentPlaying;
+	String currentPlaying = U"";
 
 	// 選択肢の時間差表示用タイマー
 	Stopwatch choiceTimer;
@@ -328,22 +329,29 @@ void Main()
 	variables[U"aoi_love"] = 50;
 	
 	// 背景の色を設定する | Set the background color
-	Scene::SetBackground(ColorF{ 0.6, 0.8, 0.7 });
+	Scene::SetBackground(ColorF{0});
 	Window::Resize(900, 600);
 
+	TextureAsset::Register({ U"BG1",{U"bg"} }, U"example/texture/壊れた街.png");
 
-	TextureAsset::Register({ U"majo",{U"Texture"} }, U"example/character/majo.png");
-	TextureAsset::Register({ U"mascot",{U"Texture"} }, U"example/character/bird.png");
+	TextureAsset::Register({ U"mascot",{U"character"} }, U"example/character/bird.png");
 
-	TextureAsset::Register({ U"normal",{U"Texture"} }, U"example/character/majo_normal.png");
-	TextureAsset::Register({ U"smile",{U"Texture"} }, U"example/character/majo_smile.png");
-	TextureAsset::Register({ U"happy",{U"Texture"} }, U"example/character/majo_happy.png");
-	TextureAsset::Register({ U"cry",{U"Texture"} }, U"example/character/majo_cry.png");
-	TextureAsset::Register({ U"madness",{U"Texture"} }, U"example/character/majo_madness.png");
-	TextureAsset::Register({ U"hollow",{U"Texture"} }, U"example/character/majo_hollow.png");
-	TextureAsset::Register({ U"black",{U"Texture"} }, U"example/character/majo_black.png");
+	TextureAsset::Register({ U"normal",{U"character"} }, U"example/character/majo_normal.png");
+	TextureAsset::Register({ U"smile",{U"character"} }, U"example/character/majo_smile.png");
+	TextureAsset::Register({ U"happy",{U"character"} }, U"example/character/majo_happy.png");
+	TextureAsset::Register({ U"cry",{U"character"} }, U"example/character/majo_cry.png");
+	TextureAsset::Register({ U"madness",{U"character"} }, U"example/character/majo_madness.png");
+	TextureAsset::Register({ U"hollow",{U"character"} }, U"example/character/majo_hollow.png");
+	TextureAsset::Register({ U"black",{U"character"} }, U"example/character/majo_black.png");
 
-	AudioAsset::Register(U"BGM1", Audio::Stream, U"example/test.mp3");
+	AudioAsset::Register({ U"BGM1", { U"BGM" } }, Audio::Stream, U"example/BGM/Violence_of_Kawaii.mp3");
+	AudioAsset::Register({ U"BGM2", { U"BGM" } }, Audio::Stream, U"example/BGM/ナイト・パレード.mp3");
+	AudioAsset::Register({ U"BGM3", { U"BGM" } }, Audio::Stream, U"example/BGM/In_a_stormy_night.mp3");
+
+	AudioAsset::Register({ U"SE1", { U"SE" } }, Audio::Stream, U"example/.SE/決定6.mp3");
+	AudioAsset::Register({ U"SE2", { U"SE" } }, Audio::Stream, U"example/.SE/パンチで壁を破壊.mp3");
+	AudioAsset::Register({ U"SE3", { U"SE" } }, Audio::Stream, U"example/.SE/打撃7.mp3");
+	AudioAsset::Register({ U"SE4", { U"SE" } }, Audio::Stream, U"example/.SE/status02.mp3");
 
 	MessageBox message{ Rect{20, 440, 860, 140},true };
 
@@ -356,6 +364,12 @@ void Main()
 
 	while (System::Update())
 	{
+		if (not currentBG.isEmpty())
+		{
+			TextureAsset(currentBG).scaled(0.8).draw();
+
+
+		}
 		
 		// 1. シナリオ終了チェック
 		if (sceneIndex >= novelTimeline.size())
@@ -400,6 +414,7 @@ void Main()
 			{
 				if (cmd.type == U"bg")              currentBG = cmd.value;
 				else if (cmd.type == U"bgm")         currentBGM = cmd.value;
+				else if (cmd.type == U"se")         currentSE = cmd.value;
 				else if (cmd.type == U"chara_show")  currentChara = cmd.value;
 				else if (cmd.type == U"chara_hide")  currentChara = U"なし";
 
@@ -531,24 +546,35 @@ void Main()
 				}
 			}
 		}
-		
+
+		if (not currentSE.isEmpty())
+		{
+			// 0.5秒かけてフェードアウト
+			AudioAsset(currentSE).play();
+
+			currentSE.clear();
+
+		}
 
 		if (currentBGM != currentPlaying)
 		{
-			if (not currentPlaying.isEmpty())
+			// 前の曲が流れていたらフェードアウト
+			if (not currentPlaying.isEmpty() && AudioAsset::IsRegistered(currentPlaying))
 			{
 				// 0.5秒かけてフェードアウト
 				AudioAsset(currentPlaying).stop(0.5s);
 			}
 
-			if (AudioAsset::IsRegistered(currentBGM)) // 事前に登録されているか確認
+			// 新しい曲をフェードイン再生
+			if (AudioAsset::IsRegistered(currentBGM))
 			{
-				// 0.5秒かけてフェードイン再生（ループ再生）
-				AudioAsset(currentBGM).play();
+				// 0.5秒かけてフェードイン（ループ再生）
+				AudioAsset(currentBGM).play(); 
 			}
 
-			// 「現在再生中」の状態を更新
+			// 現在再生中の状態を更新
 			currentPlaying = currentBGM;
+
 		}
 		
 	}
