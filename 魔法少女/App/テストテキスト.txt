@@ -38,7 +38,7 @@ scene_06_Act5
 
 scene_check_end
 
-scene_07_LastAct
+scene_07_LastAct_(ここはエンドごとに変える)
 └scene_Neutral_end
 └scene_Violence_end
 └scene_Happiness_end

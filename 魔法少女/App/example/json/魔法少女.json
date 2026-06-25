@@ -2,8 +2,8 @@
   "scene": {
     "scene_01_start": {
       "commands": [
-        { "type": "bg", "value": "bg_classroom_day" },
-        { "type": "bgm", "value": "" },
+        { "type": "bg", "value": "" },
+        { "type": "bgm", "value": "BGM1" },
         { "type": "chara_show", "name": "hijiri", "value": "normal" },
         { "type": "text", "name": "聖", "value": "私、紫堂聖(しどう ひじり)！聖フローラ学園に通う普通の高校生！" },
         { "type": "text", "name": "聖", "value": "ある日私の元に落ちてきた白い鳥のマスコット『ハニィ』にスカウトされて、 魔法少女になっちゃった！" },
@@ -20,8 +20,8 @@
     "scene_02_Act1": {
       "commands": [
         { "type": "text", "name": "", "value": "Act1" },
-        { "type": "bg", "value": "bg_classroom_day" },
-        { "type": "bgm", "value": "" },
+        { "type": "bg", "value": "BG1" },
+        { "type": "bgm", "value": "BGM2" },
         { "type": "chara_show", "name": "hijiri", "value": "normal" },
         { "type": "text", "name": "ハニィ", "value": "怪人がビルを破壊して回ってるハニ！！" },
         { "type": "text", "name": "ハニィ", "value": "どうするハニ、バイオレット！？" },
@@ -35,9 +35,9 @@
     },
     "scene_02_violence": {
       "commands": [
-        { "type": "bg", "value": "bg_classroom_day" },
-        { "type": "bgm", "value": "" },
+         
         { "type": "chara_show", "name": "hijiri", "value": "happy" },
+        { "type": "se", "value": "SE2" },
         { "type": "text", "name": "バイオレット", "value": "建物ごと破壊しちゃえ！これで大丈夫だね！" },
         { "type": "text", "name": "ハニィ", "value": "び、ビルどころかこの辺一帯全部破壊しちゃったハニ…" }
       ],
@@ -46,9 +46,9 @@
     },
     "scene_02_happiness": {
       "commands": [
-        { "type": "bg", "value": "bg_classroom_day" },
-        { "type": "bgm", "value": "" },
+       
         { "type": "chara_show", "name": "hijiri", "value": "smile" },
+        { "type": "se", "value": "SE4" },
         { "type": "text", "name": "バイオレット", "value": "これからは私の為だけに、たくさんたくさん働いてね！" },
         { "type": "text", "name": "ハニィ", "value": "怪人を眷属に…！？む、むちゃくちゃハニ…！" }
       ],
@@ -58,8 +58,8 @@
     "scene_03_Act2": {
       "commands": [
         { "type": "text", "name": "", "value": "Act2" },
-        { "type": "bg", "value": "bg_classroom_day" },
-        { "type": "bgm", "value": "" },
+        { "type": "bg", "value": "BG1" },
+        { "type": "bgm", "value": "BGM2" },
         { "type": "chara_show", "name": "hijiri", "value": "normal" },
         { "type": "text", "name": "ハニィ", "value": "怪人はどうにかできたけど、怪我人がいっぱいハニ…" },
         { "type": "text", "name": "民間人", "value": "た、助けてくれ！足が挟まれて動けないんだ！" },
@@ -74,9 +74,9 @@
     },
     "scene_03_violence": {
       "commands": [
-        { "type": "bg", "value": "bg_classroom_day" },
-        { "type": "bgm", "value": "" },
-        { "type": "chara_show", "name": "hijiri", "value": "happy" },
+            
+        { "type": "chara_show", "value": "happy" },
+        { "type": "se", "value": "SE3" },
         { "type": "text", "name": "民間人", "value": "うわぁあああああッ！！" },
         { "type": "text", "name": "バイオレット", "value": "挟まれてるなら足ごとなくしちゃえばいいよね！" },
         { "type": "text", "name": "ハニィ", "value": "あぁ…あまりの痛みで気絶しちゃったハニ…と、とりあえずハニィが\n止血しとくハニ…" }
@@ -86,9 +86,9 @@
     },
     "scene_03_happiness": {
       "commands": [
-        { "type": "bg", "value": "bg_classroom_day" },
-        { "type": "bgm", "value": "" },
+       
         { "type": "chara_show", "name": "hijiri", "value": "smile" },
+        { "type": "se", "value": "SE4" },
         { "type": "text", "name": "民間人", "value": "は、あは、はははは、あはははははははははははははははははは" },
         { "type": "text", "name": "バイオレット", "value": "痛いのは悪！ぜんぶ幸せに変えちゃうぞ！" },
         { "type": "text", "name": "ハニィ", "value": "み、見てられないハニ…" }
@@ -104,7 +104,7 @@
     },
     "scene_07_LastAct_N": {
       "commands": [
-        { "type": "bg", "value": "bg_classroom_day" },
+        { "type": "bg", "value": "" },
         { "type": "bgm", "value": "" },
         { "type": "chara_show", "name": "hijiri", "value": "normal" },
         { "type": "text", "name": "バイオレット", "value": "壊して、洗脳して、壊して、洗脳して。" },
@@ -117,8 +117,8 @@
     },
     "scene_Neutral_end": {
       "commands": [
-        { "type": "bg", "value": "bg_classroom_day" },
-        { "type": "bgm", "value": "" },
+        { "type": "bg", "value": "" },
+        { "type": "bgm", "value": "BGM3" },
         { "type": "chara_show", "name": "hijiri", "value": "hollow" },
         { "type": "text", "name": "バイオレット", "value": "なんか全部飽きちゃった。" },
         { "type": "text", "name": "バイオレット", "value": "普通過ぎてつまんないや、この世界。" },
