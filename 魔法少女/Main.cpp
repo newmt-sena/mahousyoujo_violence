@@ -23,7 +23,7 @@ void Main()
 
 	// 選択肢の時間差表示用タイマー
 	Stopwatch choiceTimer;
-	const double CHOICE_DELAY_SEC = 1.5; // 選択肢が表示されるまでの待ち時間（秒）
+	const double CHOICE_DELAY_SEC = 1.0; // 選択肢が表示されるまでの待ち時間（秒）
 
 	// パラメーター（好感度など）の管理
 	HashTable<String, int32> variables;
