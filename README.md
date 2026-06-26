@@ -3,6 +3,8 @@
 [**Common.hpp**](https://github.com/newmt-sena/mahousyoujo_violence/blob/main/%E9%AD%94%E6%B3%95%E5%B0%91%E5%A5%B3/Common.hpp)<br>
 [**jsonファイル**](https://github.com/newmt-sena/mahousyoujo_violence/blob/master/%E9%AD%94%E6%B3%95%E5%B0%91%E5%A5%B3/App/example/json/%E3%83%8E%E3%83%99%E3%83%AB%E3%83%86%E3%82%B9%E3%83%88.json)
 
+## 作品紹介動画
+[**リンク**](https://youtu.be/Y4quTQnFcEY)  
 
 # 1.作品タイトル・概要
 ・作品タイトル：『魔法少女☆バイオレンス』  
